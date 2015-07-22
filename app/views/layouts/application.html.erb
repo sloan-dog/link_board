@@ -14,14 +14,25 @@
 </head>
 <body>
 <div class="container">
-<div class="navbar">
-  <div class="row pull-right">
-  <%= link_to '', posts_new_path, class: 'btn btn-default glyphicon glyphicon-plus' %>
+  <div class="navbar">
+      <div class="row pull-right">
+      <div class='row'>
+        <div class="pull-right">
+          <% if @current_user %>
+            <%= 'You are logged in as' %>
+            <%= @current_user.email %> |
+            <%= link_to 'logout', logout_path %>
+          <% else %>
+            <%= link_to 'signup', signup_path %> |
+            <%= link_to 'login', login_path %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
 
-<%= yield %>
+  <%= yield %>
 
 </div>
 

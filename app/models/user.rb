@@ -2,6 +2,8 @@
 
   has_secure_password
 
+  attr_reader :email
+
   validates :email,
   presence: true,
   uniqueness: { case_sensitive: false },

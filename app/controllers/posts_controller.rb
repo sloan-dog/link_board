@@ -5,11 +5,11 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @post.user_id = @current_user.id
+    # :user_id = @current_user.id
   end
 
   def create
-
+    params[:post][:user_id] = @current_user.id
     @post = Post.create post_params
     redirect_to root_path
   end

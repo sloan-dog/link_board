@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
     # this doesn't have to do anything but reroute
     @user = User.new

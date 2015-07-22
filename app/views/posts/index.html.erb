@@ -1,22 +1,9 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
-
-<%= render 'shared/flash' %>
-
-<div class='row'>
-  <div class="pull-right">
-    <% if @current_user %>
-      <%= 'You are logged in as' %>
-      <%= @current_user.email %> |
-      <%= link_to 'logout', logout_path %>
-    <% else %>
-      <%= link_to 'signup', signup_path %> |
-      <%= link_to 'login', login_path %>
-    <% end %>
-  </div>
+<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+  <h1>Posts</h1>
+  <%= link_to '', posts_new_path, class: 'btn btn-default glyphicon glyphicon-plus pull-right' %>
 </div>
 
-
+<%= render 'shared/flash' %>
 
 
 <% @posts.each do |p| %>
@@ -24,6 +11,7 @@
   <div class="well well-sm">
   <h2><%= p.title %></h2>
   <a href=<%= p.link %>><h3><%= p.link %></h3></a>
+  <h3>Posted by <%= @users.find_by_id(p.user_id).email %></h3>
   </div>
 </div>
 <% end %>
