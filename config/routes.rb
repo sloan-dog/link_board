@@ -1,6 +1,20 @@
 Rails.application.routes.draw do
+
+  root 'main#index'
+  get 'signup' => 'users#new'
+  post 'signup' => 'users#create', as: :users
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+
+
+  get 'login' => 'sessions#new'
+
+  # when a form is submitted the post verb is triggered
+  post 'login' => 'sessions#create'
+
+  get 'logout' => 'sessions#destroy'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

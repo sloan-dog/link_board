@@ -1,0 +1,16 @@
+<h1>Hello!!!!</h1>
+<%= render 'shared/flash' %>
+
+<div class='row'>
+  <div class="pull-right">
+    <% if @current_user %>
+      <%= 'You are logged in as' %>
+      <%= @current_user.email %> |
+      <%= link_to 'logout', logout_path %>
+    <% else %>
+      <%= link_to 'signup', signup_path %> |
+      <%= link_to 'login', login_path %>
+    <% end %>
+  </div>
+</div>
+
