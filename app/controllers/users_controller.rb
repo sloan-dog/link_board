@@ -7,17 +7,6 @@ class UsersController < ApplicationController
   def create
     @user = User.create user_params
     # binding.pry
-
-    if @user
-      flash[:success] = 'User credentials created. You are now logged in'
-      # flash[:success] = 'You are now logged in!'
-      # redirect_to login_path
-      redirect_to login_path
-    else
-      flash[:danger]= 'Invalid email or password'
-
-      redirect_to signup_path
-    end
   end
 
   private

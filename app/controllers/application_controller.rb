@@ -6,9 +6,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :current_user
+  before_action
 
   def current_user
-    @current_user ||= User.find_by_id(session[:id])
+    # the user_id is crucial because regular :id won't work
+    @current_user ||= User.find_by_id(session[:user_id])
   end
 
 

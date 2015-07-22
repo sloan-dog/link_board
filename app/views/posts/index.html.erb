@@ -1,0 +1,29 @@
+<h1>Posts#index</h1>
+<p>Find me in app/views/posts/index.html.erb</p>
+
+<%= render 'shared/flash' %>
+
+<div class='row'>
+  <div class="pull-right">
+    <% if @current_user %>
+      <%= 'You are logged in as' %>
+      <%= @current_user.email %> |
+      <%= link_to 'logout', logout_path %>
+    <% else %>
+      <%= link_to 'signup', signup_path %> |
+      <%= link_to 'login', login_path %>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+<% @posts.each do |p| %>
+<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+  <div class="well well-sm">
+  <h2><%= p.title %></h2>
+  <a href=<%= p.link %>><h3><%= p.link %></h3></a>
+  </div>
+</div>
+<% end %>
